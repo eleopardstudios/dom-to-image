@@ -224,6 +224,12 @@
                 .then(copyUserInput)
                 .then(fixSvg)
                 .then(function () {
+                    //CUSTOM CODE ADDED 
+                    // Belo code will remote elements having class remove-from-dti
+                    var elToRemove = clone.getElementsByClassName("remove-from-dti");
+                    Array.prototype.forEach.call(elToRemove, function(el) {
+                        el.parentNode.removeChild(el);
+                    });
                     return clone;
                 });
 
